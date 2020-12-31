@@ -3,7 +3,7 @@ namespace Jankx\Specs;
 
 class WP_Query
 {
-    const common_orderby = 'date';
+    const DEFAULT_ORDER_BY = 'date';
     const DEFAULT_ORDER = 'DESC';
 
     public static function order_by($key_only = false, $show_all = false)

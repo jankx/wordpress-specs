@@ -28,8 +28,8 @@ class WP_Query
 
         if ($show_all) {
             $orderby = array_merge($orderby, array(
-                'relevance'     => __('Relevance'),
-                'modified'      => __('Modify'),
+                'relevance'       => __('Relevance'),
+                'modified'        => __('Modify'),
                 'menu_order'      => __('Menu order'),
                 'meta_value'      => __('Meta value'),
                 'meta_value_num'  => __('Meta value num'),
@@ -45,12 +45,19 @@ class WP_Query
         return $orderby;
     }
 
-    public static function order($key_only = false)
+    public static function order($key_only = false, $enable_none = true)
     {
-        $orders = array(
-            'ASC' => __('ASC'),
+        $orders = array();
+        if ($enable_none) {
+            $orders = array(
+                '' => __('None')
+            );
+        }
+
+        $orders = array_merge($orders, array(
+            'ASC'  => __('ASC'),
             'DESC' => __('DESC'),
-        );
+        ));
         return $key_only ? array_keys($orders) : $orders;
     }
 }

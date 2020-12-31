@@ -16,11 +16,9 @@ class WP_Query
             'name'          => __('Name'),
             'type'          => __('Type'),
             'date'          => __('Date'),
-            'modified'      => __('Modified'),
             'parent'        => __('Parent'),
-            'rand'          => __('Rand'),
+            'rand'          => __('Random'),
             'comment_count' => __('Comments'),
-            'relevance'     => __('relevance'),
         );
         // This hook use incase other plugin theme has custom order by
         $orderby = apply_filters(
@@ -30,6 +28,8 @@ class WP_Query
 
         if ($show_all) {
             $orderby = array_merge($orderby, array(
+                'relevance'     => __('Relevance'),
+                'modified'      => __('Modify'),
                 'menu_order'      => __('Menu order'),
                 'meta_value'      => __('Meta value'),
                 'meta_value_num'  => __('Meta value num'),
